@@ -5,17 +5,18 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>El Cofre del Tesoro</title>
 
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+
 <style>
 body {
     margin: 0;
     font-family: 'Poppins', sans-serif;
-    background: radial-gradient(circle at top, #1a2a3a, #0b1118);
+    background: radial-gradient(circle at top, #0a0a0a, #000);
     color: white;
     text-align: center;
-    overflow-x: hidden;
 }
 
-/* Animación entrada */
+/* ANIMACIÓN */
 .fade-in {
     opacity: 0;
     transform: translateY(30px);
@@ -33,41 +34,55 @@ header {
     padding: 60px 20px;
 }
 
+/* LOGO PRO */
 .logo {
-    font-size: 60px;
+    font-size: 70px;
     animation: float 3s infinite ease-in-out;
+    text-shadow: 0 0 20px gold, 0 0 40px gold;
 }
 
 @keyframes float {
     0%,100% { transform: translateY(0); }
-    50% { transform: translateY(-10px); }
+    50% { transform: translateY(-12px); }
 }
 
 h1 {
-    font-size: 3em;
-    color: gold;
+    font-size: 2.8em;
     margin: 10px 0;
+    background: linear-gradient(90deg, gold, #ffd700, #fff5cc);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
 }
 
 .sub {
     opacity: 0.8;
+    font-size: 1.1em;
 }
 
-/* TARJETAS */
+/* HERO TEXTO */
+.hero {
+    margin-top: 20px;
+    font-size: 1.2em;
+    color: #ddd;
+}
+
+/* TARJETAS PRO */
 .card {
-    background: rgba(255,255,255,0.08);
+    background: rgba(255, 215, 0, 0.05);
     margin: 25px auto;
     padding: 25px;
     border-radius: 20px;
     width: 90%;
     max-width: 600px;
-    backdrop-filter: blur(12px);
-    box-shadow: 0 0 20px rgba(0,0,0,0.3);
+    backdrop-filter: blur(15px);
+    box-shadow: 0 0 25px rgba(255,215,0,0.15);
+    border: 1px solid rgba(255,215,0,0.2);
     transition: 0.3s;
 }
 
 .card:hover {
-    transform: scale(1.03);
+    transform: translateY(-5px) scale(1.02);
+    box-shadow: 0 0 40px rgba(255,215,0,0.4);
 }
 
 .card h2 {
@@ -76,28 +91,47 @@ h1 {
 
 /* CONTADOR */
 .counter {
-    font-size: 2.5em;
+    font-size: 3em;
     color: #00ffcc;
+    text-shadow: 0 0 10px #00ffcc;
     margin-top: 10px;
 }
 
-/* BOTÓN */
+/* BOTÓN PRO */
 .btn {
     display: inline-block;
     margin: 40px 0;
-    padding: 18px 35px;
-    font-size: 1.3em;
+    padding: 20px 40px;
+    font-size: 1.4em;
+    font-weight: 600;
     color: white;
     background: linear-gradient(45deg, #25D366, #1ebe5d);
     border-radius: 50px;
     text-decoration: none;
     transition: 0.3s;
-    box-shadow: 0 0 20px rgba(37,211,102,0.7);
+    box-shadow: 0 0 25px rgba(37,211,102,0.7);
+    position: relative;
 }
 
 .btn:hover {
     transform: scale(1.1);
-    box-shadow: 0 0 35px rgba(37,211,102,1);
+    box-shadow: 0 0 50px rgba(37,211,102,1);
+}
+
+/* EFECTO BRILLO BOTÓN */
+.btn::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(120deg, transparent, rgba(255,255,255,0.4), transparent);
+    transition: 0.5s;
+}
+
+.btn:hover::after {
+    left: 100%;
 }
 
 /* TESTIMONIOS */
@@ -111,7 +145,14 @@ h1 {
 footer {
     margin-top: 40px;
     padding: 20px;
-    opacity: 0.6;
+    opacity: 0.5;
+    font-size: 0.9em;
+}
+
+/* RESPONSIVE */
+@media(max-width: 500px){
+    h1 { font-size: 2em; }
+    .logo { font-size: 50px; }
 }
 </style>
 </head>
@@ -119,15 +160,16 @@ footer {
 <body>
 
 <header class="fade-in">
-    <div class="logo">💰</div>
+    <div class="logo">🏆💰</div>
     <h1>El Cofre del Tesoro</h1>
     <p class="sub">Rifas diarias • Premios reales • Oportunidades reales</p>
+    <p class="hero">💸 Gana dinero desde tu celular participando en nuestras rifas exclusivas</p>
 </header>
 
 <div class="card fade-in">
     <h2>🎯 ¿De qué trata?</h2>
     <p>
-        Un grupo exclusivo donde realizamos rifas diarias de distintos valores.
+        Un grupo exclusivo donde realizamos rifas diarias con premios reales 💰.
         Entre más participas, más oportunidades tienes de ganar.
     </p>
 </div>
@@ -158,9 +200,8 @@ footer {
 </footer>
 
 <script>
-// Contador animado
 let count = 0;
-let target = 150; // puedes cambiar este número
+let target = 150;
 
 let counter = document.getElementById("counter");
 
@@ -168,7 +209,7 @@ let interval = setInterval(() => {
     count++;
     counter.innerText = count + "+";
     if(count >= target) clearInterval(interval);
-}, 20);
+}, 15);
 </script>
 
 </body>
