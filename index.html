@@ -68,24 +68,33 @@ h1 {
 
 /* TARJETAS PRO */
 .card {
-    .card {
-    background: rgba(255, 215, 0, 0.05);
-    margin: 15px auto;
-    padding: 18px;
-    border-radius: 16px;
-    width: 92%;
-    max-width: 500px;
+    background: rgba(30, 30, 30, 0.85);
+    margin: 30px auto; /* 🔥 MÁS ESPACIO ENTRE CARDS */
+    padding: 22px;
+    border-radius: 20px;
+    width: 90%;
+    max-width: 480px;
+    box-sizing: border-box;
+
+    /* 🔥 BORDE MUCHO MÁS VISIBLE */
+    border: 2px solid rgba(255, 215, 0, 0.7);
+
+    /* 🔥 SOMBRA PARA DESPEGAR DEL FONDO */
+    box-shadow: 
+        0 10px 30px rgba(0,0,0,0.6),
+        0 0 15px rgba(255, 215, 0, 0.2);
+
     backdrop-filter: blur(12px);
-    box-shadow: 0 0 20px rgba(255,215,0,0.15);
-    border: 1px solid rgba(255,215,0,0.2);
-    transition: 0.3s;
-    box-sizing: border-box; /* 🔥 CLAVE para que no se desborde */
-}
+
+    transition: all 0.3s ease;
 }
 
 .card:hover {
-    transform: translateY(-5px) scale(1.02);
-    box-shadow: 0 0 40px rgba(255,215,0,0.4);
+    transform: translateY(-6px);
+    border-color: gold;
+    box-shadow: 
+        0 15px 40px rgba(0,0,0,0.8),
+        0 0 25px rgba(255, 215, 0, 0.6);
 }
 
 .card h2 {
@@ -157,6 +166,14 @@ footer {
     h1 { font-size: 2em; }
     .logo { font-size: 50px; }
 }
+
+@media(max-width: 500px){
+    .card {
+        margin: 22px auto;
+        padding: 18px;
+        border-radius: 18px;
+    }
+}
 </style>
 </head>
 
@@ -174,7 +191,7 @@ footer {
       <p>
         💸 ¿Te gustaría ganar dinero todos los días desde tu celular?  
         <br><br>
-        En <strong>El Cofre del Tesoro</strong> realizamos rifas diarias basadas en resultados de <strong>loterías oficiales</strong> como Boyacá, Cruz Roja y más, lo que hace cada juego 100% transparente.  
+        En <strong>El Cofre del Tesoro</strong> realizamos rifas diarias basadas en resultados de <strong>loterías oficiales</strong> lo que hace cada juego 100% transparente.  
         <br><br>
         🔥 Compras tu número, participas y puedes ser el próximo ganador… así de simple.  
         <br><br>
@@ -184,7 +201,18 @@ footer {
 
 <div class="card fade-in">
     <h2>📌 ¿Cómo funciona?</h2>
-    <p>💵 Compras tu número → 🎟️ Participas → 🏆 Ganador anunciado en el grupo</p>
+
+    <p>💵 <strong>1. Elige tu número</strong><br>
+    Escoge un número de dos cifras (00 al 99).</p>
+
+    <p>🎟️ <strong>2. Más oportunidades</strong><br>
+    Cada número te da <strong>4 oportunidades de ganar en el día</strong>.</p>
+
+    <p>🔥 <strong>3. Participa fácilmente</strong><br>
+    Compras tu número, entras al juego y quedas participando automáticamente.</p>
+
+    <p>🏆 <strong>4. Gana y recibe tu premio</strong><br>
+    Si aciertas, recibes tu dinero de forma rápida y segura 💰</p>
 </div>
 
 <div class="card fade-in">
