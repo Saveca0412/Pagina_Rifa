@@ -77,10 +77,11 @@ header {
     z-index: 2;
 }
 
-.logo {
-    font-size: 70px;
+.logo img {
+    width: 250px;
+    max-width: 80%;
     animation: float 3s infinite ease-in-out;
-    text-shadow: 0 0 20px gold, 0 0 40px gold;
+    filter: drop-shadow(0 0 15px gold);
 }
 
 @keyframes float {
@@ -225,7 +226,9 @@ footer {
 <body>
 
 <header class="fade-in">
-    <div class="logo">🏆💰</div>
+    <div class="logo">
+    <img src="cofre.png" alt="El Cofre del Tesoro">
+</div>
     <h1>El Cofre del Tesoro</h1>
     <p class="sub">Rifas diarias • Premios reales • Oportunidades reales</p>
     <p class="hero">💸 Gana dinero desde tu celular participando en nuestras rifas exclusivas</p>
