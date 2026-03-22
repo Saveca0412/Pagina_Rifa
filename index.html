@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>El Cofre del Tesoro</title>
+
+<style>
+body {
+    margin: 0;
+    font-family: 'Poppins', sans-serif;
+    background: radial-gradient(circle at top, #1a2a3a, #0b1118);
+    color: white;
+    text-align: center;
+    overflow-x: hidden;
+}
+
+/* Animación entrada */
+.fade-in {
+    opacity: 0;
+    transform: translateY(30px);
+    animation: fadeIn 1s forwards;
+}
+@keyframes fadeIn {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* HEADER */
+header {
+    padding: 60px 20px;
+}
+
+.logo {
+    font-size: 60px;
+    animation: float 3s infinite ease-in-out;
+}
+
+@keyframes float {
+    0%,100% { transform: translateY(0); }
+    50% { transform: translateY(-10px); }
+}
+
+h1 {
+    font-size: 3em;
+    color: gold;
+    margin: 10px 0;
+}
+
+.sub {
+    opacity: 0.8;
+}
+
+/* TARJETAS */
+.card {
+    background: rgba(255,255,255,0.08);
+    margin: 25px auto;
+    padding: 25px;
+    border-radius: 20px;
+    width: 90%;
+    max-width: 600px;
+    backdrop-filter: blur(12px);
+    box-shadow: 0 0 20px rgba(0,0,0,0.3);
+    transition: 0.3s;
+}
+
+.card:hover {
+    transform: scale(1.03);
+}
+
+.card h2 {
+    color: gold;
+}
+
+/* CONTADOR */
+.counter {
+    font-size: 2.5em;
+    color: #00ffcc;
+    margin-top: 10px;
+}
+
+/* BOTÓN */
+.btn {
+    display: inline-block;
+    margin: 40px 0;
+    padding: 18px 35px;
+    font-size: 1.3em;
+    color: white;
+    background: linear-gradient(45deg, #25D366, #1ebe5d);
+    border-radius: 50px;
+    text-decoration: none;
+    transition: 0.3s;
+    box-shadow: 0 0 20px rgba(37,211,102,0.7);
+}
+
+.btn:hover {
+    transform: scale(1.1);
+    box-shadow: 0 0 35px rgba(37,211,102,1);
+}
+
+/* TESTIMONIOS */
+.testimonial {
+    font-style: italic;
+    margin-top: 10px;
+    opacity: 0.9;
+}
+
+/* FOOTER */
+footer {
+    margin-top: 40px;
+    padding: 20px;
+    opacity: 0.6;
+}
+</style>
+</head>
+
+<body>
+
+<header class="fade-in">
+    <div class="logo">💰</div>
+    <h1>El Cofre del Tesoro</h1>
+    <p class="sub">Rifas diarias • Premios reales • Oportunidades reales</p>
+</header>
+
+<div class="card fade-in">
+    <h2>🎯 ¿De qué trata?</h2>
+    <p>
+        Un grupo exclusivo donde realizamos rifas diarias de distintos valores.
+        Entre más participas, más oportunidades tienes de ganar.
+    </p>
+</div>
+
+<div class="card fade-in">
+    <h2>📌 ¿Cómo funciona?</h2>
+    <p>💵 Compras tu número → 🎟️ Participas → 🏆 Ganador anunciado en el grupo</p>
+</div>
+
+<div class="card fade-in">
+    <h2>🏆 Premios entregados</h2>
+    <div class="counter" id="counter">0</div>
+</div>
+
+<div class="card fade-in">
+    <h2>🔥 Testimonios</h2>
+    <p class="testimonial">"Gané en mi segundo intento, totalmente real 🔥"</p>
+    <p class="testimonial">"Pagos rápidos, el grupo es muy activo 💰"</p>
+    <p class="testimonial">"Ya he ganado dos veces, recomendado 👌"</p>
+</div>
+
+<a href="https://chat.whatsapp.com/TU-LINK" class="btn" target="_blank">
+    🚀 Unirme al Grupo
+</a>
+
+<footer>
+    © 2026 El Cofre del Tesoro
+</footer>
+
+<script>
+// Contador animado
+let count = 0;
+let target = 150; // puedes cambiar este número
+
+let counter = document.getElementById("counter");
+
+let interval = setInterval(() => {
+    count++;
+    counter.innerText = count + "+";
+    if(count >= target) clearInterval(interval);
+}, 20);
+</script>
+
+</body>
+</html>
