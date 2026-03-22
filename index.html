@@ -11,9 +11,50 @@
 body {
     margin: 0;
     font-family: 'Poppins', sans-serif;
-    background: radial-gradient(circle at top, #0a0a0a, #000);
     color: white;
     text-align: center;
+    position: relative;
+    z-index: 1;
+
+    background: radial-gradient(circle at 20% 10%, rgba(255,215,0,0.15), transparent 40%),
+                radial-gradient(circle at 80% 30%, rgba(255,215,0,0.08), transparent 40%),
+                radial-gradient(circle at 50% 100%, rgba(0,255,200,0.08), transparent 50%),
+                #000;
+}
+
+/* PARTICULAS */
+.particles {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    pointer-events: none;
+    z-index: 0;
+}
+
+.particle {
+    position: absolute;
+    top: -10px;
+    border-radius: 50%;
+    opacity: 0.8;
+    animation: fall linear infinite;
+    background: gold;
+    box-shadow: 0 0 8px gold;
+}
+
+@keyframes fall {
+    from {
+        transform: translateY(-10px);
+        opacity: 0;
+    }
+    10% {
+        opacity: 1;
+    }
+    to {
+        transform: translateY(110vh);
+        opacity: 0;
+    }
 }
 
 /* ANIMACIÓN */
@@ -32,9 +73,10 @@ body {
 /* HEADER */
 header {
     padding: 60px 20px;
+    position: relative;
+    z-index: 2;
 }
 
-/* LOGO PRO */
 .logo {
     font-size: 70px;
     animation: float 3s infinite ease-in-out;
@@ -59,27 +101,24 @@ h1 {
     font-size: 1.1em;
 }
 
-/* HERO TEXTO */
 .hero {
     margin-top: 20px;
     font-size: 1.2em;
     color: #ddd;
 }
 
-/* TARJETAS PRO */
+/* CARDS */
 .card {
     background: rgba(30, 30, 30, 0.85);
-    margin: 30px auto; /* 🔥 MÁS ESPACIO ENTRE CARDS */
+    margin: 30px auto;
     padding: 22px;
     border-radius: 20px;
     width: 90%;
     max-width: 480px;
     box-sizing: border-box;
 
-    /* 🔥 BORDE MUCHO MÁS VISIBLE */
     border: 2px solid rgba(255, 215, 0, 0.7);
 
-    /* 🔥 SOMBRA PARA DESPEGAR DEL FONDO */
     box-shadow: 
         0 10px 30px rgba(0,0,0,0.6),
         0 0 15px rgba(255, 215, 0, 0.2);
@@ -87,6 +126,8 @@ h1 {
     backdrop-filter: blur(12px);
 
     transition: all 0.3s ease;
+    position: relative;
+    z-index: 2;
 }
 
 .card:hover {
@@ -101,6 +142,10 @@ h1 {
     color: gold;
 }
 
+.card p {
+    line-height: 1.6;
+}
+
 /* CONTADOR */
 .counter {
     font-size: 3em;
@@ -109,7 +154,7 @@ h1 {
     margin-top: 10px;
 }
 
-/* BOTÓN PRO */
+/* BOTÓN */
 .btn {
     display: inline-block;
     margin: 40px 0;
@@ -123,6 +168,7 @@ h1 {
     transition: 0.3s;
     box-shadow: 0 0 25px rgba(37,211,102,0.7);
     position: relative;
+    z-index: 2;
 }
 
 .btn:hover {
@@ -130,7 +176,6 @@ h1 {
     box-shadow: 0 0 50px rgba(37,211,102,1);
 }
 
-/* EFECTO BRILLO BOTÓN */
 .btn::after {
     content: "";
     position: absolute;
@@ -159,15 +204,15 @@ footer {
     padding: 20px;
     opacity: 0.5;
     font-size: 0.9em;
+    position: relative;
+    z-index: 2;
 }
 
 /* RESPONSIVE */
 @media(max-width: 500px){
     h1 { font-size: 2em; }
     .logo { font-size: 50px; }
-}
 
-@media(max-width: 500px){
     .card {
         margin: 22px auto;
         padding: 18px;
@@ -188,10 +233,10 @@ footer {
 
 <div class="card fade-in">
     <h2>🎯 ¿De qué trata?</h2>
-      <p>
+    <p>
         💸 ¿Te gustaría ganar dinero todos los días desde tu celular?  
         <br><br>
-        En <strong>El Cofre del Tesoro</strong> realizamos rifas diarias basadas en resultados de <strong>loterías oficiales</strong> lo que hace cada juego 100% transparente.  
+        En <strong>El Cofre del Tesoro</strong> realizamos rifas diarias basadas en resultados reales, lo que garantiza transparencia.  
         <br><br>
         🔥 Compras tu número, participas y puedes ser el próximo ganador… así de simple.  
         <br><br>
@@ -209,10 +254,10 @@ footer {
     Cada número te da <strong>4 oportunidades de ganar en el día</strong>.</p>
 
     <p>🔥 <strong>3. Participa fácilmente</strong><br>
-    Compras tu número, entras al juego y quedas participando automáticamente.</p>
+    Compras tu número y entras automáticamente.</p>
 
     <p>🏆 <strong>4. Gana y recibe tu premio</strong><br>
-    Si aciertas, recibes tu dinero de forma rápida y segura 💰</p>
+    Si aciertas, recibes tu dinero 💰</p>
 </div>
 
 <div class="card fade-in">
@@ -236,9 +281,29 @@ footer {
 </footer>
 
 <script>
+// PARTICULAS
+const container = document.createElement("div");
+container.classList.add("particles");
+document.body.appendChild(container);
+
+for (let i = 0; i < 40; i++) {
+    let particle = document.createElement("div");
+    particle.classList.add("particle");
+
+    particle.style.left = Math.random() * 100 + "vw";
+    particle.style.animationDuration = (4 + Math.random() * 6) + "s";
+    particle.style.animationDelay = Math.random() * 5 + "s";
+
+    let size = (4 + Math.random() * 6);
+    particle.style.width = size + "px";
+    particle.style.height = size + "px";
+
+    container.appendChild(particle);
+}
+
+// CONTADOR
 let count = 0;
 let target = 150;
-
 let counter = document.getElementById("counter");
 
 let interval = setInterval(() => {
